@@ -17,5 +17,7 @@
 #' @importFrom utils unzip globalVariables
 #' @importFrom purrr map_df map map_int map_chr map_lgl
 #' @importFrom httr GET stop_for_status write_disk
+#' @importFrom fs is_file file_copy
+#' @importFrom methods is
 NULL
 

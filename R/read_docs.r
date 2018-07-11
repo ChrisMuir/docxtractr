@@ -61,7 +61,7 @@ read_docx <- function(path) {
     }
   } else {
     path <- path.expand(path)
-    if (!file.exists(path)) stop(sprintf("Cannot find '%s'", path), call.=FALSE)
+    if (!fs::is_file(path)) stop(sprintf("Cannot find '%s'", path), call.=FALSE)
 
     # If input is a .doc file, save it as a .docx file using LibreOffice
     # command-line tools.

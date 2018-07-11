@@ -30,7 +30,9 @@ Imports:
     purrr,
     dplyr,
     utils,
-    httr
+    httr,
+    fs,
+    methods
 RoxygenNote: 6.0.1.9000
 SystemRequirements: LibreOffice (<https://www.libreoffice.org/>) required to extract 
     data from .doc files.

@@ -37,8 +37,10 @@ is_doc <- function(path) { tolower(tools::file_ext(path)) == "doc" }
 
 # Copy a file to a new location, throw an error if the copy fails.
 file_copy <- function(from, to) {
-  fc <- file.copy(from, to)
-  if (!fc) stop(sprintf("file copy failure for file %s", from), call.=FALSE)
+  fc <- tryCatch(fs::file_copy(from, to), error = function(e) e)
+  if (methods::is(fc, "error")) {
+    stop(sprintf("file copy failure for file %s", from), call. = FALSE)
+  }
 }
 
 # Save a .doc file as a new .docx file, using the LibreOffice command line
