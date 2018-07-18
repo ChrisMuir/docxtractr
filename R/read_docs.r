@@ -53,7 +53,7 @@ read_docx <- function(path) {
       convert_doc_to_docx(tmpd, tmpf_doc)
 
       # copy output of LibreOffice to zip (not entirely necessary)
-      file_copy(tmpf_docx, tmpf)
+      do_file_copy(tmpf_docx, tmpf)
     } else {
       # If input is a url pointing to a .docx file, write file to disk
       res <- httr::GET(path, write_disk(tmpf))
@@ -66,15 +66,15 @@ read_docx <- function(path) {
     # If input is a .doc file, save it as a .docx file using LibreOffice
     # command-line tools.
     if (is_input_doc) {
-      file_copy(path, tmpf_doc)
+      do_file_copy(path, tmpf_doc)
       convert_doc_to_docx(tmpd, tmpf_doc)
 
       # copy output of LibreOffice to zip (not entirely necessary)
-      file_copy(tmpf_docx, tmpf)
+      do_file_copy(tmpf_docx, tmpf)
     } else {
       # Otherwise, if input is a .docx file, just copy docx to zip
       # (not entirely necessary)
-      file_copy(path, tmpf)
+      do_file_copy(path, tmpf)
     }
   }
 

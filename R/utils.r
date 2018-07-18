@@ -36,7 +36,7 @@ is_docx <- function(path) { tolower(tools::file_ext(path)) == "docx" }
 is_doc <- function(path) { tolower(tools::file_ext(path)) == "doc" }
 
 # Copy a file to a new location, throw an error if the copy fails.
-file_copy <- function(from, to) {
+do_file_copy <- function(from, to) {
   fc <- tryCatch(fs::file_copy(from, to), error = function(e) e)
   if (methods::is(fc, "error")) {
     stop(sprintf("file copy failure for file %s", from), call. = FALSE)
